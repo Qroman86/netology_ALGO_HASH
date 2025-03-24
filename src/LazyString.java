@@ -3,7 +3,8 @@ public class LazyString {
     private int start, end; // границы нашей подстроки
     private int hash; // запоминаем хеш чтобы не пересчитывать
 
-    private LazyString() {}
+    private LazyString() {
+    }
 
     public LazyString(String source, int start, int end) {
         this.source = source;
@@ -16,7 +17,7 @@ public class LazyString {
         // и сохраните в поле hash.
         // из-за этого, создание LazyString через конструктор будет линейным
         this.hash = 0;
-        for(int i = this.start; i <= this.end; i++){
+        for (int i = this.start; i < this.end; i++) {
             this.hash += (int) this.source.charAt(i);
         }
     }
@@ -34,7 +35,7 @@ public class LazyString {
         // Заметьте, что достаточно просто вычесть код того
         // символа, что исчез и прибавить код того символа, что
         // появился
-        shifted.hash = this.hash - (int) this.source.charAt(this.start) + (int) this.source.charAt(shifted.end);
+        shifted.hash = this.hash - (int) this.source.charAt(this.start) + (int) this.source.charAt(shifted.end - 1);
 
         return shifted;
     }

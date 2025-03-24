@@ -19,7 +19,7 @@ public class Main {
             if (prev == null) {
                 // первую подстроку создаём конструктором за линейную асимптотику
                 // ВАШ КОД
-                slice = new LazyString(source, i, i + size - 1);
+                slice = new LazyString(source, i, i + size );
             } else {
                 // все остальные через сдвиг вправо от предыдущей подстроки, за O(1)
                 // ВАШ КОД
